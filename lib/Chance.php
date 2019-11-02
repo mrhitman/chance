@@ -1,7 +1,17 @@
 <?php
 
+namespace lib;
+
+/**
+ * Class Chance
+ * @package lib
+ */
 class Chance {
-    public constructor($seed=0) {
+    protected $seed;
+
+    public function __construct($seed = null) {
+        $this->seed = $seed ?? mktime();
+        srand($this->seed);
     }
 
     /**
@@ -39,10 +49,18 @@ class Chance {
     }
 
     public function letter($args = []) {
-        $casing = $args['casing'] ?? false;
+        $casing = $args['casing'];
+
+        if (!$casing) {
+            $casing = $this->boolean() ? 'lower' : 'upper';
+        } 
+
+        $alphabet = $args['alphabet'] ?? str_split('abcdefghijklmnopqrstuvwxyz');
+        $letter = $alphabet[array_rand($alphabet)];
+
+        switch ($casing) {
+            case 'lower': return strtolower($letter);
+            case 'upper': return strtoupper($letter);
+        }
     }
 } 
-
-$c = new Chance();
-
-print_r($c->floating(['max' => 100, 'min' => 0]));
