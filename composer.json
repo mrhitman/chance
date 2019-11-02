@@ -1,0 +1,18 @@
+{
+  "name": "mrhitman/chance",
+  "description": "random generation library",
+  "require": {
+    "phpunit/phpunit": "^8.4",
+    "spatie/phpunit-watcher": "^1.21"
+  },
+  "authors": [
+    {
+      "name": "mrhitman",
+      "email": "kabalx47@gmail.com"
+    }
+  ],
+  "scripts": {
+    "test": "phpunit tests",
+    "test:watch": "phpunit-watcher watch tests"
+  }
+}
