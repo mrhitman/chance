@@ -5,25 +5,28 @@ use lib\Chance;
 
 class ChanceTest extends TestCase
 {
+    protected $chance;
+
+    protected function setUp(): void
+    {
+        $this->chance = new lib\Chance(0);
+    }
+
     public function testInteger()
     {
-        $chance = new lib\Chance(0);
-
-        $v = $chance->integer(['min'=> 1, 'max' => 100]);
+        $v = $this->chance->integer(['min'=> 1, 'max' => 100]);
         $this->assertSame($v, 45);
 
-        $v = $chance->integer();
+        $v = $this->chance->integer();
         $this->assertSame($v, 1712680880219530869);
     }
     
     public function testLetter()
     {
-        $chance = new lib\Chance(0);
-
-        $v = $chance->letter();
+        $v = $this->chance->letter();
         $this->assertSame($v, 'p');
 
-        $v = $chance->letter(['casing' => 'upper']);
+        $v = $this->chance->letter(['casing' => 'upper']);
         $this->assertSame($v, 'B');
     }
 }
