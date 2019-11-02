@@ -63,4 +63,14 @@ class Chance {
             case 'upper': return strtoupper($letter);
         }
     }
+
+    public function age($args = []) {
+        switch ($args['type']) {
+            case 'child': return rand(1, 10);
+            case 'teen': return rand(11, 20);
+            case 'adult': return rand(21, 50);
+            case 'senior': return rand(61, 120);
+            default: return rand(1, 120);
+        }
+    }
 } 
