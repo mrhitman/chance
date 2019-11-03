@@ -32,6 +32,31 @@ class Chance
         return $this->integer($args) + round(1 / rand(1, 100), $fixed);
     }
 
+    public function string($args = [])
+    {
+        $len = $args['length'] ?? rand(5, 20);
+        $numeric = $args['numeric'] ?? true;
+        $symbols = $args['symbols'] ?? true;
+        $defaultPool = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $defaultPool = $numeric ? $defaultPool . '0123456789' : $defaultPool;
+        $defaultPool = $symbols ? $defaultPool . '!@#$%^&*()[]' : $defaultPool;
+        $pool = str_split($args['pool'] ?? $defaultPool);
+
+        $string = '';
+        for ($i = 0; $i < $len; $i++) {
+            $string .= $pool[array_rand($pool)];
+        }
+
+        switch ($args['casing']) {
+            case 'lower':
+                return strtolower($string);
+            case 'upper':
+                return strtoupper($string);
+            default:
+                return $string;
+        }
+    }
+
     /**
      * @return boolean
      */
@@ -51,8 +76,8 @@ class Chance
 
     public function falsy($args = [])
     {
-        $poll = $arg['poll'] ?? [null, false, '', 0, []];
-        return $poll[array_rand($poll)];
+        $pool = $args['pool'] ?? [null, false, '', 0, []];
+        return $pool[array_rand($pool)];
     }
 
     public function letter($args = [])
