@@ -33,5 +33,8 @@ class ChanceTest extends TestCase
     public function testColor() {
         $v = $this->chance->color();
         $this->assertSame($v, '#ac2f75');
+
+        $v = $this->chance->color(['format' => 'rgb']);
+        $this->assertSame($v, 'rgb(192,67,251)');
     }
 }

@@ -86,8 +86,15 @@ class Chance {
 
     public function color($args = []) {
         $bits = [rand(0, 255), rand(0,255), rand(0,255)];
-        return array_reduce($bits, function ($acc, $bit) {
-           return $acc . dechex($bit);
-        }, "#");
+        $format = $args['format'] ?? 'hex';
+
+        switch ($format) {
+            case 'hex':
+                return array_reduce($bits, function ($acc, $bit) {
+                    return $acc . dechex($bit);
+                }, "#");
+            case 'rgb':
+                return 'rgb(' . implode(',', $bits) . ')';
+        }
     }
 } 
