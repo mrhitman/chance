@@ -19,6 +19,16 @@ class Chance
     /**
      * @return integer
      */
+    public function natural($args = [])
+    {
+        $max = $args['max'] ?? PHP_INT_MAX;
+        $min = $args['min'] ?? 0;
+        return rand($min, $max);
+    }
+
+    /**
+     * @return integer
+     */
     public function integer($args = [])
     {
         $max = $args['max'] ?? PHP_INT_MAX;
