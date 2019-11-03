@@ -73,4 +73,10 @@ class Chance {
             default: return rand(1, 120);
         }
     }
+
+    public function gender($args = []) {
+        $extraGenders = $args['extraGenders'] ?? [];
+        $genders = array_merge(['Male', 'Female'], $extraGenders);
+        return $genders[array_rand($genders)];
+    }
 } 
