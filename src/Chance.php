@@ -79,4 +79,8 @@ class Chance {
         $genders = array_merge(['Male', 'Female'], $extraGenders);
         return $genders[array_rand($genders)];
     }
+
+    public function coin() {
+        return $this->boolean() ? 'heads' : 'tails';
+    }
 } 
