@@ -29,4 +29,9 @@ class ChanceTest extends TestCase
         $v = $this->chance->letter(['casing' => 'upper']);
         $this->assertSame($v, 'B');
     }
+
+    public function testColor() {
+        $v = $this->chance->color();
+        $this->assertSame($v, '#ac2f75');
+    }
 }

@@ -83,4 +83,11 @@ class Chance {
     public function coin() {
         return $this->boolean() ? 'heads' : 'tails';
     }
+
+    public function color($args = []) {
+        $bits = [rand(0, 255), rand(0,255), rand(0,255)];
+        return array_reduce($bits, function ($acc, $bit) {
+           return $acc . dechex($bit);
+        }, "#");
+    }
 } 
