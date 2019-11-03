@@ -9,7 +9,7 @@ class ChanceTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->chance = new lib\Chance(0);
+        $this->chance = new Chance(0);
     }
 
     public function testInteger()
