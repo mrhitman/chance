@@ -185,4 +185,18 @@ class Chance
         }
         return $string;
     }
+
+
+    public function domain($args = [])
+    {
+        $tlds = ['com', 'org', 'edu', 'biz', 'net', 'de', 'uk', 'info'];
+        $tld = $args['tld'] ?? $tlds[array_rand($tlds)];
+        return $this->word() . '.' . $tld;
+    }
+
+    public function email($args = [])
+    {
+        $domain = $args['domain'] ?? $this->domain();
+        return $this->word() . '@' . $domain;
+    }
 }

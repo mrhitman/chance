@@ -58,4 +58,22 @@ class ChanceTest extends TestCase
         $v = $this->chance->prime(['max' => 10]);
         $this->assertSame($v, 3);
     }
+
+    public function testDomain()
+    {
+        $v = $this->chance->domain();
+        $this->assertSame($v, 'zobozi.net');
+
+        $v = $this->chance->domain(['tld' => 'com']);
+        $this->assertSame($v, 'fifeje.com');
+    }
+
+    public function testEmail()
+    {
+        $v = $this->chance->email();
+        $this->assertSame($v, 'fifeje@zobozi.net');
+
+        $v = $this->chance->email(['domain' => 'mailinator.com']);
+        $this->assertSame($v, 'zowelu@mailinator.com');
+    }
 }
