@@ -112,7 +112,7 @@ class Chance
     public function prime($args = [])
     {
         $min = min([$args['min'] ?? 2, 2]);
-        $max = min($args['max'] ?? 1000, 1000);
+        $max = min($args['max'] ?? 10000, 10000);
         $sieve = [];
         $primes = [];
         for ($i = $min; $i <= $max; ++$i) {

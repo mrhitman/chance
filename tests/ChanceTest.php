@@ -51,7 +51,7 @@ class ChanceTest extends TestCase
     public function testPrime()
     {
         $v = $this->chance->prime();
-        $this->assertSame($v, 643);
+        $this->assertSame($v, 379);
 
         $v = $this->chance->prime(['max' => 10]);
         $this->assertSame($v, 7);
