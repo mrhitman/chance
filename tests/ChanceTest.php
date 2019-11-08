@@ -47,4 +47,15 @@ class ChanceTest extends TestCase
         $v = $this->chance->word(['length' => 10]);
         $this->assertSame($v, 'koxocewuye');
     }
+
+    public function testPrime()
+    {
+        $v = $this->chance->prime();
+        $this->assertSame($v, 643);
+
+        $v = $this->chance->prime(['max' => 10]);
+        $this->assertSame($v, 7);
+        $v = $this->chance->prime(['max' => 10]);
+        $this->assertSame($v, 3);
+    }
 }

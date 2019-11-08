@@ -109,6 +109,23 @@ class Chance
         }
     }
 
+    public function prime($args = [])
+    {
+        $min = min([$args['min'] ?? 2, 2]);
+        $max = min($args['max'] ?? 1000, 1000);
+        $sieve = [];
+        $primes = [];
+        for ($i = $min; $i <= $max; ++$i) {
+            if (!$sieve[$i]) {
+                $primes[] = $i;
+                for ($j = $i << 1; $j <= $max; $j += $i) {
+                    $sieve[$j] = true;
+                }
+            }
+        }
+        return $primes[array_rand($primes)];
+    }
+
     public function age($args = [])
     {
         switch ($args['type']) {
