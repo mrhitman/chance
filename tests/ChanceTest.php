@@ -75,5 +75,8 @@ class ChanceTest extends TestCase
 
         $v = $this->chance->email(['domain' => 'mailinator.com']);
         $this->assertSame($v, 'zowelu@mailinator.com');
+
+        $v = $this->chance->email(['length' => 6, 'domain' => 'mailinator.com']);
+        $this->assertSame($v, 'sezetu@mailinator.com');
     }
 }

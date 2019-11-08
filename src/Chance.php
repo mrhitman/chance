@@ -191,12 +191,12 @@ class Chance
     {
         $tlds = ['com', 'org', 'edu', 'biz', 'net', 'de', 'uk', 'info'];
         $tld = $args['tld'] ?? $tlds[array_rand($tlds)];
-        return $this->word() . '.' . $tld;
+        return $this->word($args) . '.' . $tld;
     }
 
     public function email($args = [])
     {
-        $domain = $args['domain'] ?? $this->domain();
-        return $this->word() . '@' . $domain;
+        $domain = $args['domain'] ?? $this->domain($args);
+        return $this->word($args) . '@' . $domain;
     }
 }
