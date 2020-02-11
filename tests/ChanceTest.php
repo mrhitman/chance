@@ -79,4 +79,10 @@ class ChanceTest extends TestCase
         $v = $this->chance->email(['length' => 6, 'domain' => 'mailinator.com']);
         $this->assertSame($v, 'sezetu@mailinator.com');
     }
+
+    public function testIp()
+    {
+        $v = $this->chance->ip();
+        $this->assertSame($v, '172.47.117.192');
+    }
 }

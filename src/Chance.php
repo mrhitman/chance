@@ -199,4 +199,15 @@ class Chance
         $domain = $args['domain'] ?? $this->domain($args);
         return $this->word($args) . '@' . $domain;
     }
+
+    public function ip()
+    {
+        $args = ['min' => 0, 'max' => 255];
+        return implode('.', [
+            $this->integer($args),
+            $this->integer($args),
+            $this->integer($args),
+            $this->integer($args)
+        ]);
+    }
 }
