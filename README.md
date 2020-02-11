@@ -9,6 +9,9 @@ chance js library clone for php
     $chance->floating(['min' => -10, 'max' => 10, 'fixed' => 3]);
     $chance->prime();
 
+    $chance->domain();
+    $chance->color();
+    $chance->ip();
     $chance->age();
     $chance->gender();
     $chance->email();
@@ -20,7 +23,4 @@ chance js library clone for php
     $chance->boolean();
     $chance->letter();
     $chance->word();
-
-    $chance->domain();
-    $chance->ip();
 ```
